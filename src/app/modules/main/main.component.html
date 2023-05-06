@@ -1,0 +1,8 @@
+<app-header></app-header>
+<app-welcome-message></app-welcome-message>
+<app-search [@inOutAnimation] *ngIf="showSearch" class="search"></app-search>
+<div class="container-fluid" >
+  <div class="row">
+    <router-outlet></router-outlet>
+  </div>
+</div>

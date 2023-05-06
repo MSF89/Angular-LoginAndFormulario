@@ -1,0 +1,40 @@
+{
+  "users": [
+    {
+      "nombre": "Fabricio",
+      "apellido": "Gonzalez",
+      "email": "fgonzalez@edu.com",
+      "edad": "25",
+      "profesion": "programador",
+      "hobbies": null,
+      "id": "V7Xr2ef"
+    },
+    {
+      "nombre": "Alexander",
+      "apellido": "Malveira",
+      "email": "malveiralexander@outlook.com",
+      "edad": "25",
+      "profesion": "Technical leader/ Profesor",
+      "hobbies": null,
+      "id": "ihXq0OD"
+    },
+    {
+      "nombre": "Fabricio",
+      "apellido": "Rodriguez",
+      "email": "frodriguez@edu.com",
+      "edad": "50",
+      "profesion": "Cajero Bancario",
+      "hobbies": null,
+      "id": "Ns574Tl"
+    },
+    {
+      "nombre": "Miriam",
+      "apellido": "Figueroa",
+      "email": "mfigueroa.edu.com",
+      "edad": "33",
+      "profesion": "FrontEnd Developer",
+      "hobbies": null,
+      "id": "w0ipk2g"
+    }
+  ]
+}

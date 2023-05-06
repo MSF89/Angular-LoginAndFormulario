@@ -1,0 +1,35 @@
+<div class="container-fluid pt-5 background-img">
+  <div class="row justify-content-center mt-5">
+    <div class="col-md-6">
+      <div *ngIf="!loading" class="card acrylic">
+        <div class="card-body">
+          <form [formGroup]="loginUsuario" class="container mt-3" (ngSubmit)="login()">
+            <div class="row justify-content-center ">
+              <h2 class="text-center text-dark">Bienvenidos</h2>
+            </div>
+            <div class="row justify-content-center mb-3">
+              <h2 class="text-center text-white">Inicio de sesión</h2>
+            </div>
+            <div class="row justify-content-center mb-3">
+              <input formControlName="email" type="email" class="form-control" name="email" id="email" placeholder="Email">
+              <app-auth-validators [control]="loginUsuario.controls['email']" name='Email'></app-auth-validators>
+            </div>
+            <div class="row justify-content-center mb-3">
+              <input formControlName="password" type="password" class="form-control" name="password" id="password" placeholder="Contraseña">
+              <app-auth-validators [control]="loginUsuario.controls['password']" name='Password'></app-auth-validators>
+            </div>
+            <div class="row justify-content-center">
+              <button type="submit" [disabled]="loginUsuario.invalid" class="btn btn-close-white btn-dark mb-3">Ingresar</button>
+            </div>
+            <div class="row justify-content-center">
+              <p class="text-light text-center">Aun no tienes cuenta? <a class="text-light" routerLink="/auth/register">Registrarse</a>
+                <br>
+                <a class="text-center text-light" routerLink="/auth/recover-password">Olvidó su contraseña?</a></p>
+            </div>
+          </form>
+        </div>
+      </div>
+      <app-spinner *ngIf="loading"></app-spinner>
+    </div>
+  </div>
+</div>

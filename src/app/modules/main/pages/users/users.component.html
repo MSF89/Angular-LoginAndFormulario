@@ -1,0 +1,81 @@
+<div class="container-fluid">
+  <div class="row justify-content-center" *ngIf="showCreate">
+    <form [formGroup]="addForm" (ngSubmit)="save()" class="col-6">
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" name="email" formControlName="email" class="form-control" id="email">
+        <app-validators [control]="addForm.controls['email']" name='Email'></app-validators>
+      </div>
+      <div class="mb-3">
+        <label for="name" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="name" name="name" formControlName="name">
+        <app-validators [control]="addForm.controls['name']" name='Nombre'></app-validators>
+      </div>
+      <div class="mb-3">
+        <label for="lastName" class="form-label">Apellido</label>
+        <input type="text" class="form-control" id="lastName" name="lastName" formControlName="lastName">
+        <app-validators [control]="addForm.controls['lastName']" name='Apellido'></app-validators>
+      </div>
+      <div class="mb-3">
+        <label for="yearsOld" class="form-label">Edad</label>
+        <input type="text" class="form-control" id="yearsOld" name="Edad" formControlName="yearsOld">
+        <app-validators [control]="addForm.controls['yearsOld']" name='Edad'></app-validators>
+      </div>
+      <div class="mb-3">
+        <label for="job" class="form-label">Profesion</label>
+        <input type="text" class="form-control" id="job" name="job" formControlName="job">
+        <app-validators [control]="addForm.controls['job']" name='Profesion'></app-validators>
+      </div>
+      <div class="mb-3">
+        <button class="btn btn-dark" type="submit">Crear/Actualizar Usuarios</button>
+        <button (click)="hide()" class="btn btn-dark m-2">Cerrar Formulario</button>
+      </div>
+
+    </form>
+  </div>
+  <div class="row justify-content-end" *ngIf="!showCreate">
+    <div class="col-auto">
+      <button (click)="show()" class="btn btn-dark">Agregar Usuario <i class="fa-duotone fa-user-plus" style="--fa-primary-color: #ffffff; --fa-secondary-color: #ffffff; --fa-secondary-opacity: 1;"></i></button>
+    </div>
+  </div>
+  <div class="row justify-content-center mt-4" *ngIf="!loading">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellido</th>
+          <th scope="col">Edad</th>
+          <th scope="col">Profesion</th>
+          <th scope="col">Email</th>
+          <!-- <th scope="col">Hobbies</th> -->
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of users1">
+          <th scope="row">{{item.id}}</th>
+          <td>{{item.nombre}}</td>
+          <td>{{item.apellido}}</td>
+          <td>{{item.edad}}</td>
+          <td>{{item.profesion}}</td>
+          <td>{{item.email}}</td>
+         <!--  <td>
+            <p *ngFor="let hobby of item.hobbies">
+              - {{hobby}}
+            </p>
+          </td> -->
+          <td>
+            <button class="btn btn-primary btn-ronded" (click)="getUser(item.id)"><i class="fa-duotone fa-pen" style="--fa-primary-color: #ffffff; --fa-secondary-color: #c473ab; --fa-secondary-opacity: 1;"></i></button>
+            <button class="btn btn-danger btn-ronded" (click)="deleteUser(item.id)"><i class="fa-duotone fa-trash" style="--fa-primary-color: #f4f7fa; --fa-secondary-color: #bebfc1; --fa-secondary-opacity: 1;"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="row justify-content-center" *ngIf="loading">
+    <div class="col-auto ">
+      <i class="fa-duotone fa-loader fa-spin-pulse" style="font-size: 5em; margin-top: 1em;"></i>
+    </div>
+  </div>
+</div>

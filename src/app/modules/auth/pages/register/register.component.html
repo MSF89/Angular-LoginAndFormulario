@@ -1,0 +1,36 @@
+<div class="container-fluid pt-5 background-img">
+  <div class="row justify-content-center mt-5">
+    <div class="col-md-6">
+      <div *ngIf="!loading" class="card acrylic">
+        <div class="card-body">
+          <form (ngSubmit)="registrar()" [formGroup]="registerUsuario" class="container mt-3">
+            <div class="row justify-content-center ">
+              <h2 class="text-center text-light mb-4">Registrarse</h2>
+            </div>
+            <div class="row justify-content-center mb-3">
+              <input type="text" class="form-control" formControlName="email" name="email" id="email" placeholder="Nuevo Email de Usuario">
+              <app-auth-validators [control]="registerUsuario.controls['email']" name='Email'></app-auth-validators>
+            </div>
+            <div class="row justify-content-center mb-3">
+              <input type="password" class="form-control" formControlName="password" name="password" id="password" placeholder="Ingrese Contraseña">
+              <app-auth-validators [control]="registerUsuario.controls['password']" name='Password'></app-auth-validators>
+            </div>
+            <div class="row justify-content-center mb-3">
+              <input type="password" class="form-control" formControlName="repeatpassword" name="repeatpassword" id="repeatpassword" placeholder="Repetir Contraseña">
+              <app-auth-validators [control]="registerUsuario.controls['repeatpassword']" name='repeatpassword'></app-auth-validators>
+            </div>
+            <div class="row justify-content-center">
+
+              <button type="submit" [disabled]="registerUsuario.invalid" class="btn btn-close-white btn-dark m-2">Aceptar</button>
+            </div>
+            <div class="row justify-content-center">
+              <a class="text-center text-light" routerLink="/auth/login">Volver a Inicio</a>
+            </div>
+          </form>
+        </div>
+      </div>
+      <app-spinner *ngIf="loading"></app-spinner>
+    </div>
+  </div>
+</div>
+
